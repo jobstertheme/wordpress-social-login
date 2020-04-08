@@ -201,6 +201,11 @@ function wsl_process_login_new_users_gateway( $provider, $redirect_to, $hybridau
 					$profile_completion_errors[] = _wsl__( '<strong>ERROR</strong>: Sorry, usernames must have letters too!', 'wordpress-social-login' );
 				}
 
+				if ( ! validate_username( $requested_user_login ) )
+				{
+					$profile_completion_errors[] = _wsl__( '<strong>Error</strong>: This username is invalid because it uses illegal characters. Please enter a valid username.', 'wordpress-social-login' );
+				}
+
 				if ( username_exists( $requested_user_login) )
 				{
 					$profile_completion_errors[] = _wsl__( '<strong>ERROR</strong>: Sorry, that username already exists!', 'wordpress-social-login' );
