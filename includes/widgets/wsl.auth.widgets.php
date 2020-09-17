@@ -109,8 +109,8 @@ function wsl_render_auth_widget( $args = array() )
 	}
 
 	// build the authentication url which will call for wsl_process_login() : action=wordpress_social_authenticate
-	$authenticate_base_url = site_url( 'wp-login.php', 'login_post' ) 
-                                        . ( strpos( site_url( 'wp-login.php', 'login_post' ), '?' ) ? '&' : '?' ) 
+	$authenticate_base_url = site_url( 'wp-login.php', 'login_post' )
+                                        . ( strpos( site_url( 'wp-login.php', 'login_post' ), '?' ) ? '&' : '?' )
                                                 . "action=wordpress_social_authenticate&mode=login&";
 
 	// if not in mode login, we overwrite the auth base url
@@ -127,7 +127,7 @@ function wsl_render_auth_widget( $args = array() )
 	}
 
 	// Connect with caption
-	$connect_with_label = _wsl__( get_option( 'wsl_settings_connect_with_label' ), 'wordpress-social-login' );
+	$connect_with_label = __( get_option( 'wsl_settings_connect_with_label' ), 'wordpress-social-login' );
 
 	$connect_with_label = isset( $args['caption'] ) ? $args['caption'] : $connect_with_label;
 
@@ -226,7 +226,7 @@ function wsl_render_auth_widget( $args = array() )
 			{
 ?>
 
-		<a rel="nofollow" href="<?php echo $authenticate_url; ?>" title="<?php echo sprintf( _wsl__("Connect with %s", 'wordpress-social-login'), $provider_name ) ?>" class="wp-social-login-provider wp-social-login-provider-<?php echo strtolower( $provider_id ); ?>" data-provider="<?php echo $provider_id ?>" role="button">
+		<a rel="nofollow" href="<?php echo $authenticate_url; ?>" title="<?php echo sprintf( __("Connect with %s", 'wordpress-social-login'), $provider_name ) ?>" class="wp-social-login-provider wp-social-login-provider-<?php echo strtolower( $provider_id ); ?>" data-provider="<?php echo $provider_id ?>" role="button">
 			<?php if( $social_icon_set == 'none' ){ echo apply_filters( 'wsl_render_auth_widget_alter_provider_name', $provider_name ); } else { ?><img alt="<?php echo $provider_name ?>" src="<?php echo $assets_base_url . strtolower( $provider_id ) . '.png' ?>" aria-hidden="true" /><?php } ?>
 
 		</a>
@@ -242,7 +242,7 @@ function wsl_render_auth_widget( $args = array() )
 	{
 ?>
 		<p style="background-color: #FFFFE0;border:1px solid #E6DB55;padding:5px;">
-			<?php _wsl_e( '<strong>WordPress Social Login is not configured yet</strong>.<br />Please navigate to <strong>Settings &gt; WP Social Login</strong> to configure this plugin.<br />For more information, refer to the <a rel="nofollow" href="http://miled.github.io/wordpress-social-login">online user guide</a>.', 'wordpress-social-login') ?>.
+			<?php __e( '<strong>WordPress Social Login is not configured yet</strong>.<br />Please navigate to <strong>Settings &gt; WP Social Login</strong> to configure this plugin.<br />For more information, refer to the <a rel="nofollow" href="http://miled.github.io/wordpress-social-login">online user guide</a>.', 'wordpress-social-login') ?>.
 		</p>
 		<style>#wp-social-login-connect-with{display:none;}</style>
 <?php
@@ -523,7 +523,7 @@ add_action( 'login_enqueue_scripts', 'wsl_add_stylesheets' );
 function wsl_add_javascripts()
 {
 	$wsl_settings_use_popup = get_option( 'wsl_settings_use_popup' );
-    
+
     // if a user is visiting using a mobile device, WSL will fall back to more in page
 	$wsl_settings_use_popup = function_exists( 'wp_is_mobile' ) ? wp_is_mobile() ? 2 : $wsl_settings_use_popup : $wsl_settings_use_popup;
 

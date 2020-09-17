@@ -11,59 +11,59 @@
 */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit; 
+if ( !defined( 'ABSPATH' ) ) exit;
 
 // --------------------------------------------------------------------
 
 function wsl_component_help_reference()
 {
-	// HOOKABLE: 
+	// HOOKABLE:
 	do_action( "wsl_component_help_reference_start" );
 ?>
 <div class="stuffbox" style="padding:20px">
-	<h3 style="padding-left:0px"><?php _wsl_e("Documentation", 'wordpress-social-login') ?></h3>
+	<h3 style="padding-left:0px"><?php __e("Documentation", 'wordpress-social-login') ?></h3>
 	<p>
-		<?php _wsl_e('The complete <b>User Guide</b> can be found at
+		<?php __e('The complete <b>User Guide</b> can be found at
 		<a href="http://miled.github.io/wordpress-social-login/index.html" target="_blank">miled.github.io/wordpress-social-login/index.html</a>', 'wordpress-social-login') ?>
 	</p>
 
 	<hr />
-	
-	<h3 style="padding-left:0px"><?php _wsl_e("FAQs", 'wordpress-social-login') ?></h3>
+
+	<h3 style="padding-left:0px"><?php __e("FAQs", 'wordpress-social-login') ?></h3>
 	<p>
-		<?php _wsl_e('A list of <b>Frequently asked questions</b> can be found at
+		<?php __e('A list of <b>Frequently asked questions</b> can be found at
 		<a href="http://miled.github.io/wordpress-social-login/faq.html" target="_blank">miled.github.io/wordpress-social-login/faq.html</a>', 'wordpress-social-login') ?>
 	</p>
 
 	<hr />
-	
-	<h3 style="padding-left:0px"><?php _wsl_e("Support", 'wordpress-social-login') ?></h3>
+
+	<h3 style="padding-left:0px"><?php __e("Support", 'wordpress-social-login') ?></h3>
 	<p>
-		<?php _wsl_e('To get help and support, here is how you can reach me <a href="http://miled.github.io/wordpress-social-login/support.html" target="_blank">miled.github.io/wordpress-social-login/support.html</a>', 'wordpress-social-login') ?>
+		<?php __e('To get help and support, here is how you can reach me <a href="http://miled.github.io/wordpress-social-login/support.html" target="_blank">miled.github.io/wordpress-social-login/support.html</a>', 'wordpress-social-login') ?>
 	</p>
- 
+
 	<hr />
-	
-	<h3 style="padding-left:0px"><?php _wsl_e("Authors", 'wordpress-social-login') ?></h3>
+
+	<h3 style="padding-left:0px"><?php __e("Authors", 'wordpress-social-login') ?></h3>
 	<p>
-		<?php _wsl_e('WordPress Social Login was created by <a href="http://profiles.wordpress.org/miled/" target="_blank">Mohamed Mrassi</a> (a.k.a Miled) and <a href="https://miled.github.io/wordpress-social-login/graphs/contributors" target="_blank">contributors</a>', 'wordpress-social-login') ?>.
+		<?php __e('WordPress Social Login was created by <a href="http://profiles.wordpress.org/miled/" target="_blank">Mohamed Mrassi</a> (a.k.a Miled) and <a href="https://miled.github.io/wordpress-social-login/graphs/contributors" target="_blank">contributors</a>', 'wordpress-social-login') ?>.
 	</p>
- 
+
 	<hr />
-	
-	<h3 style="padding-left:0px"><?php _wsl_e("License", 'wordpress-social-login') ?></h3>
+
+	<h3 style="padding-left:0px"><?php __e("License", 'wordpress-social-login') ?></h3>
 	<p>
-		<?php _wsl_e("Except where otherwise noted, <b>WordPress Social Login</b> is distributed under the terms of the MIT license reproduced here", 'wordpress-social-login') ?>.
+		<?php __e("Except where otherwise noted, <b>WordPress Social Login</b> is distributed under the terms of the MIT license reproduced here", 'wordpress-social-login') ?>.
 	</p>
 
 	<p>
-		<?php _wsl_e("In case you're not familiar with The MIT License, it can be summed in three basic things", 'wordpress-social-login') ?>:
+		<?php __e("In case you're not familiar with The MIT License, it can be summed in three basic things", 'wordpress-social-login') ?>:
 	</p>
 
 	<ul style="margin-left:45px;line-height: 20px;">
-		<li><?php _wsl_e("The MIT License (MIT) is compatible with The GNU Public License (GPL) but it is more liberal", 'wordpress-social-login') ?>.</li>
-		<li><?php _wsl_e("Do no hold the plugin authors liable. This software is provided AS IS, WITHOUT WARRANTY OF ANY KIND", 'wordpress-social-login') ?>.</li>
-		<li><?php _wsl_e("You are allowed to use this plugin for whatever purpose, including in commercial projects, as long as the copyright header inside the code is left intact", 'wordpress-social-login') ?>.</li>
+		<li><?php __e("The MIT License (MIT) is compatible with The GNU Public License (GPL) but it is more liberal", 'wordpress-social-login') ?>.</li>
+		<li><?php __e("Do no hold the plugin authors liable. This software is provided AS IS, WITHOUT WARRANTY OF ANY KIND", 'wordpress-social-login') ?>.</li>
+		<li><?php __e("You are allowed to use this plugin for whatever purpose, including in commercial projects, as long as the copyright header inside the code is left intact", 'wordpress-social-login') ?>.</li>
 	</ul>
 
 <div class="fade updated" style="line-height: 22px;padding: 22px;font-family: monospace;">
@@ -92,8 +92,8 @@ function wsl_component_help_reference()
 </div>
 </div>
 <?php
-	// HOOKABLE: 
+	// HOOKABLE:
 	do_action( "wsl_component_help_reference_end" );
 }
 
-// --------------------------------------------------------------------	
+// --------------------------------------------------------------------
