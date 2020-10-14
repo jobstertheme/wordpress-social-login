@@ -13,14 +13,16 @@ use Hybridauth\Data;
 use Hybridauth\User;
 
 /**
- * Twitter provider adapter.
+ * Twitter OAuth1 provider adapter.
+ * Uses OAuth1 not OAuth2 because many Twitter endpoints are built around OAuth1.
  *
  * Example:
  *
  *   $config = [
  *       'callback'  => Hybridauth\HttpClient\Util::getCurrentUrl(),
  *       'keys'      => [ 'key' => '', 'secret' => '' ], // OAuth1 uses 'key' not 'id'
- *       'authorize' => true
+ *       'authorize' => true // Needed to perform actions on behalf of users (see below link)
+ *         // https://developer.twitter.com/en/docs/authentication/oauth-1-0a/obtaining-user-access-tokens
  *   ];
  *
  *   $adapter = new Hybridauth\Provider\Twitter( $config );
@@ -81,7 +83,9 @@ class Twitter extends OAuth1
      */
     public function getUserProfile()
     {
-        $response = $this->apiRequest('account/verify_credentials.json?include_email=true');
+        $response = $this->apiRequest('account/verify_credentials.json', 'GET', [
+            'include_email' => $this->config->get('include_email') === false ? 'false' : 'true',
+        ]);
 
         $data = new Data\Collection($response);
 
@@ -101,16 +105,18 @@ class Twitter extends OAuth1
         $userProfile->region        = $data->get('location');
 
         $userProfile->profileURL    = $data->exists('screen_name')
-                                        ? ('https://twitter.com/' . $data->get('screen_name'))
+                                        ? ('http://twitter.com/' . $data->get('screen_name'))
                                         : '';
 
+        $photoSize = $this->config->get('photo_size') ?: 'original';
+        $photoSize = $photoSize === 'original' ? '' : "_{$photoSize}";
         $userProfile->photoURL      = $data->exists('profile_image_url_https')
-                                        ? str_replace('_normal', '', $data->get('profile_image_url_https'))
+                                        ? str_replace('_normal', $photoSize, $data->get('profile_image_url_https'))
                                         : '';
 
         $userProfile->data = [
-          'followed_by' => $data->get('friends_count'),
-          'follows' => $data->get('followers_count'),
+          'followed_by' => $data->get('followers_count'),
+          'follows' => $data->get('friends_count'),
         ];
 
         return $userProfile;
@@ -160,7 +166,9 @@ class Twitter extends OAuth1
     }
 
     /**
+     * @param $item
      *
+     * @return User\Contact
      */
     protected function fetchUserContact($item)
     {
@@ -170,11 +178,11 @@ class Twitter extends OAuth1
 
         $userContact->identifier  = $item->get('id_str');
         $userContact->displayName = $item->get('name');
-        $userContact->photoURL    = $item->get('profile_image_url_https');
+        $userContact->photoURL    = $item->get('profile_image_url');
         $userContact->description = $item->get('description');
 
         $userContact->profileURL  = $item->exists('screen_name')
-                                        ? ('https://twitter.com/' . $item->get('screen_name'))
+                                        ? ('http://twitter.com/' . $item->get('screen_name'))
                                         : '';
 
         return $userContact;
@@ -231,7 +239,8 @@ class Twitter extends OAuth1
     }
 
     /**
-     *
+     * @param $item
+     * @return User\Activity
      */
     protected function fetchUserActivity($item)
     {
@@ -245,10 +254,10 @@ class Twitter extends OAuth1
 
         $userActivity->user->identifier   = $item->filter('user')->get('id_str');
         $userActivity->user->displayName  = $item->filter('user')->get('name');
-        $userActivity->user->photoURL     = $item->filter('user')->get('profile_image_url_https');
+        $userActivity->user->photoURL     = $item->filter('user')->get('profile_image_url');
 
         $userActivity->user->profileURL   = $item->filter('user')->get('screen_name')
-                                                ? ('https://twitter.com/' . $item->filter('user')->get('screen_name'))
+                                                ? ('http://twitter.com/' . $item->filter('user')->get('screen_name'))
                                                 : '';
 
         return $userActivity;

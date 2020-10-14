@@ -3,7 +3,7 @@
 Plugin Name: WordPress Social Login
 Plugin URI: http://miled.github.io/wordpress-social-login/
 Description: Allow your visitors to comment and login with social networks such as Twitter, Facebook, Google, Yahoo and more.
-Version: 3.0.7-wpj
+Version: 3.0.5
 Author: Miled
 Author URI: https://github.com/miled
 License: MIT License
@@ -66,14 +66,16 @@ global $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG;
 global $WORDPRESS_SOCIAL_LOGIN_COMPONENTS;
 global $WORDPRESS_SOCIAL_LOGIN_ADMIN_TABS;
 
-$WORDPRESS_SOCIAL_LOGIN_VERSION = "3.0.7-wpj";
+$WORDPRESS_SOCIAL_LOGIN_VERSION = "3.0.5";
 
 // --------------------------------------------------------------------
-if ( $GLOBALS['pagenow'] === 'wp-login.php' || $GLOBALS['pagenow'] === 'options-general.php' ) {
-	if ( session_status() == PHP_SESSION_NONE ) {
-		session_start();
-	}
-}
+
+/**
+* Initialize PHP sessions
+* see implementation in includes/services/wsl.session.php
+*/
+add_action('init', 'wsl_init_php_session');
+
 // --------------------------------------------------------------------
 
 /**
@@ -257,7 +259,7 @@ require_once( WORDPRESS_SOCIAL_LOGIN_ABS_PATH . 'includes/widgets/wsl.error.page
 require_once( WORDPRESS_SOCIAL_LOGIN_ABS_PATH . 'includes/widgets/wsl.loading.screens.php'    ); // Generate WSL loading screens
 
 # WSL Admin interfaces
-if( is_admin() && ( !defined( 'DOING_AJAX' ) || !DOING_AJAX ) )
+if( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) )
 {
 	require_once( WORDPRESS_SOCIAL_LOGIN_ABS_PATH . 'includes/admin/wsl.admin.ui.php'         ); // The entry point to WSL Admin interfaces
 }

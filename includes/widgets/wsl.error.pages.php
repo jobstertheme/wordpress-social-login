@@ -3,7 +3,7 @@
 * WordPress Social Login
 *
 * https://miled.github.io/wordpress-social-login/ | https://github.com/miled/wordpress-social-login
-*   (c) 2011-2018 Mohamed Mrassi and contributors | https://wordpress.org/plugins/wordpress-social-login/
+*   (c) 2011-2020 Mohamed Mrassi and contributors | https://wordpress.org/plugins/wordpress-social-login/
 */
 
 /**
@@ -112,7 +112,7 @@ if( ! function_exists( 'wsl_render_error_page' ) )
 		<meta name="robots" content="NOINDEX, NOFOLLOW">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title><?php bloginfo('name'); ?> - <?php __e("Oops! We ran into an issue", 'wordpress-social-login') ?>.</title>
+		<title><?php bloginfo('name'); ?> - <?php _wsl_e("Oops! We ran into an issue", 'wordpress-social-login') ?>.</title>
 		<style type="text/css">
 			body {
 				background: #f3f6f8;
@@ -155,7 +155,7 @@ if( ! function_exists( 'wsl_render_error_page' ) )
 		<div>
 			<img src="<?php echo $assets_base_url ?>error-60.png" />
 
-			<h1><?php __e("We're unable to complete your request", 'wordpress-social-login') ?>!</h1>
+			<h1><?php _wsl_e("We're unable to complete your request", 'wordpress-social-login') ?>!</h1>
 
 			<?php
 				if(! empty($message) ){
@@ -168,16 +168,14 @@ if( ! function_exists( 'wsl_render_error_page' ) )
 			<?php
 				if(! empty($api_error) ){
 					?>
-						<p id="technical-details-btn"><a href="javascript:showTechnicals()">Show technical details</a></p>
+						<p id="technical-details-btn"><a href="javascript:show_technical_details();">Show technical details</a></p>
 
 						<p id="technical-details-message"><code><?php echo htmlentities($api_error); ?></code></p>
 
 						<script>
-							function showTechnicals(){
+							function show_technical_details(){
 								document.getElementById('technical-details-btn').style.display = 'none';
 								document.getElementById('technical-details-message').style.display = 'block';
-
-								return false;
 							}
 						</script>
 					<?php
@@ -189,12 +187,30 @@ if( ! function_exists( 'wsl_render_error_page' ) )
 				if( $notes )
 				{
 					?>
-						<p><?php __e( $notes, 'wordpress-social-login'); ?></p>
+						<p><?php _wsl_e( $notes, 'wordpress-social-login'); ?></p>
 					<?php
 				}
 			?>
 
-			<p><a href="<?php echo home_url(); ?>">&xlarr; <?php __e("Back to home", 'wordpress-social-login') ?></a></p>
+			<p>
+				<?php
+					// get Widget::Authentication display
+					$wsl_settings_use_popup = get_option( 'wsl_settings_use_popup' );
+
+					if( $wsl_settings_use_popup == 1 )
+					{
+				?>
+					<a href="javascript:window.close();"><?php _wsl_e("Close window", 'wordpress-social-login') ?></a>
+				<?php
+					}
+					else
+					{
+				?>
+					<a href="<?php echo home_url(); ?>">&xlarr; <?php _wsl_e("Back to home", 'wordpress-social-login') ?></a>
+				<?php
+					}
+				?>
+			</p>
 		</div>
 
 		<?php
@@ -237,7 +253,7 @@ function wsl_render_error_page_debug_section( $php_exception = null )
 <br />
 
 <small>
-	<?php __e("<strong>Note:</strong> This debugging area can be disabled from the plugin settings by setting <b>Development mode</b> to <b>Disabled</b>", 'wordpress-social-login'); ?>.
+	<?php _wsl_e("<strong>Note:</strong> This debugging area can be disabled from the plugin settings by setting <b>Development mode</b> to <b>Disabled</b>", 'wordpress-social-login'); ?>.
 </small>
 <?php
 }
