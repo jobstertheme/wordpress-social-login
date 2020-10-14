@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: _wsl__;_wsl_e\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/admin/components/auth-paly/index.php:56

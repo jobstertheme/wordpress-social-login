@@ -183,9 +183,9 @@ function wsl_add_plugin_row_meta( $links, $file )
 	if( $file == $this_plugin )
 	{
 		$wsl_links = array(
-			'<a href="http://miled.github.io/wordpress-social-login/">'             . _wsl__( "Docs"             , 'wordpress-social-login' ) . '</a>',
-			'<a href="http://miled.github.io/wordpress-social-login/support.html">' . _wsl__( "Support"          , 'wordpress-social-login' ) . '</a>',
-			'<a href="https://github.com/miled/wordpress-social-login">'            . _wsl__( "Fork me on Github", 'wordpress-social-login' ) . '</a>',
+			'<a href="http://miled.github.io/wordpress-social-login/">'             . __( "Docs"             , 'wordpress-social-login' ) . '</a>',
+			'<a href="http://miled.github.io/wordpress-social-login/support.html">' . __( "Support"          , 'wordpress-social-login' ) . '</a>',
+			'<a href="https://github.com/miled/wordpress-social-login">'            . __( "Fork me on Github", 'wordpress-social-login' ) . '</a>',
 		);
 
 		return array_merge( $links, $wsl_links );
