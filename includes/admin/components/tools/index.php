@@ -11,7 +11,7 @@
 */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit; 
+if ( !defined( 'ABSPATH' ) ) exit;
 
 // --------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ function wsl_component_tools()
 	// HOOKABLE:
 	do_action( "wsl_component_tools_start" );
 
-	include "wsl.components.tools.actions.php"; 
+	include "wsl.components.tools.actions.php";
 	include "wsl.components.tools.sidebar.php";
 
 	$action = isset( $_REQUEST['do'] ) ? $_REQUEST['do'] : null ;
@@ -38,26 +38,26 @@ function wsl_component_tools()
 			?>
 				<div style="margin: 4px 0 20px;" class="fade error wsl-error-db-tables">
 					<p>
-						<?php _wsl_e('The URL nonce is not valid', 'wordpress-social-login') ?>! 
+						<?php __e('The URL nonce is not valid', 'wordpress-social-login') ?>!
 					</p>
-				</div>	
+				</div>
 			<?php
 		}
 	}
 	else
 	{
-		?> 
+		?>
 			<div class="metabox-holder columns-2" id="post-body">
-				<table width="100%"> 
+				<table width="100%">
 					<tr valign="top">
-						<td> 
+						<td>
 							<?php
 								wsl_component_tools_sections();
 							?>
 						</td>
 						<td width="10"></td>
 						<td width="400">
-							<?php 
+							<?php
 								wsl_component_tools_sidebar();
 							?>
 						</td>
@@ -67,10 +67,10 @@ function wsl_component_tools()
 		<?php
 	}
 
-	// HOOKABLE: 
+	// HOOKABLE:
 	do_action( "wsl_component_tools_end" );
 }
 
-// --------------------------------------------------------------------	
+// --------------------------------------------------------------------
 
 wsl_component_tools();
