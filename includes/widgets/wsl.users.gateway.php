@@ -59,6 +59,11 @@ function wsl_process_login_new_users_gateway( $provider, $redirect_to, $hybridau
 	$bouncer_profile_completion = false;
 	$profile_completion_errors  = array();
 
+	if ( ! validate_username( $requested_user_login ) )
+	{
+		$profile_completion_errors[] = _wsl__( '<strong>Error</strong>: This username is invalid because it uses illegal characters. Please enter a valid username.', 'wordpress-social-login' );
+	}
+
 	$registration_enabled = get_option( 'wsl_settings_bouncer_registration_enabled' );
 	$linking_enabled      = get_option( 'wsl_settings_bouncer_accounts_linking_enabled' );
 	$require_email        = get_option( 'wsl_settings_bouncer_profile_completion_require_email' );
@@ -274,7 +279,7 @@ function wsl_process_login_new_users_gateway( $provider, $redirect_to, $hybridau
 				padding: 70px 0 15px;
 				position: relative;
 				text-align: center;
-				width: 100%;
+				width: auto;
 			}
 			#avatar {
 				margin-left: -76px;
