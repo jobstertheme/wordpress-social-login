@@ -21,7 +21,7 @@ function wsl_component_tools_do_diagnostics()
 <div class="metabox-holder columns-2" id="post-body">
 	<div class="stuffbox">
 		<h3>
-			<label><?php __e("WordPress Social Login Diagnostics", 'wordpress-social-login') ?></label>
+			<label><?php _e("WordPress Social Login Diagnostics", 'wordpress-social-login') ?></label>
 		</h3>
 		<div class="inside">
 			<br />
@@ -720,7 +720,7 @@ function wsl_component_tools_do_diagnostics()
 			<br />
 			<hr />
 
-			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php __e("Back to Tools", 'wordpress-social-login') ?></a>
+			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php _e("Back to Tools", 'wordpress-social-login') ?></a>
 		</div>
 	</div>
 </div>
@@ -742,7 +742,7 @@ function wsl_component_tools_do_sysinfo()
 <div class="metabox-holder columns-2" id="post-body">
 	<div class="stuffbox">
 		<h3>
-			<label><?php __e("System information", 'wordpress-social-login') ?></label>
+			<label><?php _e("System information", 'wordpress-social-login') ?></label>
 		</h3>
 		<div class="inside">
 			<ul style="padding-left:15px;">
@@ -838,7 +838,7 @@ if ( get_bloginfo( 'version' ) < '3.4' ) {
 
 			<br />
 			<br />
-			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php __e("Back to Tools", 'wordpress-social-login') ?></a>
+			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php _e("Back to Tools", 'wordpress-social-login') ?></a>
 		</div>
 	</div>
 </div>
@@ -860,17 +860,17 @@ function wsl_component_tools_do_repair()
 <div class="metabox-holder columns-2" id="post-body">
 	<div class="stuffbox">
 		<h3>
-			<label><?php __e("Repair Wordpress Social Login tables", 'wordpress-social-login') ?></label>
+			<label><?php _e("Repair Wordpress Social Login tables", 'wordpress-social-login') ?></label>
 		</h3>
 		<div class="inside">
 			<p>
-				<?php __e("All Wordpress Social Login tables and fields <em>should</em> be now restored", 'wordpress-social-login') ?>.
+				<?php _e("All Wordpress Social Login tables and fields <em>should</em> be now restored", 'wordpress-social-login') ?>.
 			</p>
 			<p>
-				<?php __e("If this still didn't work, please report this as a issue", 'wordpress-social-login') ?>.
+				<?php _e("If this still didn't work, please report this as a issue", 'wordpress-social-login') ?>.
 			</p>
 			<hr />
-			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php __e("Back to Tools", 'wordpress-social-login') ?></a>
+			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php _e("Back to Tools", 'wordpress-social-login') ?></a>
 		</div>
 	</div>
 </div>
@@ -899,23 +899,23 @@ function wsl_component_tools_do_uninstall()
 <div class="metabox-holder columns-2" id="post-body">
 	<div class="stuffbox">
 		<h3>
-			<label><?php __e("Uninstall", 'wordpress-social-login') ?></label>
+			<label><?php _e("Uninstall", 'wordpress-social-login') ?></label>
 		</h3>
 		<div class="inside">
 			<p>
-				<?php __e("All Wordpress Social Login tables and stored options are permanently deleted from your WordPress database", 'wordpress-social-login') ?>.
+				<?php _e("All Wordpress Social Login tables and stored options are permanently deleted from your WordPress database", 'wordpress-social-login') ?>.
 			</p>
 			<p>
-				<?php __e("To delete Wordpress Social Login files from your WordPress website, you may deactivate and uninstall it through the 'Plugins' menu in WordPress", 'wordpress-social-login') ?>.
+				<?php _e("To delete Wordpress Social Login files from your WordPress website, you may deactivate and uninstall it through the 'Plugins' menu in WordPress", 'wordpress-social-login') ?>.
 			</p>
 			<p>
-				<?php __e("Thank you for using Wordpress Social Login", 'wordpress-social-login') ?>.
+				<?php _e("Thank you for using Wordpress Social Login", 'wordpress-social-login') ?>.
 			</p>
 			<p>
-				<?php __e("Good bye", 'wordpress-social-login') ?>.
+				<?php _e("Good bye", 'wordpress-social-login') ?>.
 			</p>
 			<hr />
-			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php __e("Back to Tools", 'wordpress-social-login') ?></a>
+			<a class="button-secondary" href="options-general.php?page=wordpress-social-login&wslp=tools">&larr; <?php _e("Back to Tools", 'wordpress-social-login') ?></a>
 		</div>
 	</div>
 </div>

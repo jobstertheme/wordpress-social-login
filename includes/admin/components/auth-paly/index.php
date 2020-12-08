@@ -91,37 +91,37 @@ function wsl_component_authtest()
 			<td>
 				<?php if( ! $adapter ): ?>
 					<div style="padding: 15px; margin-bottom: 8px; border: 1px solid #ddd; background-color: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-						<p><?php __e("Connect with a provider to get started", 'wordpress-social-login') ?>.</p>
+						<p><?php _e("Connect with a provider to get started", 'wordpress-social-login') ?>.</p>
 					</div>
 				<?php else: ?>
 					<div class="stuffbox">
 						<h3>
-							<label><?php __e("Connected adapter specs", 'wordpress-social-login') ?></label>
+							<label><?php _e("Connected adapter specs", 'wordpress-social-login') ?></label>
 						</h3>
 						<div class="inside">
 							<table class="wp-list-table widefat">
 								<tr>
-									<th width="200"><label><?php __e("Provider", 'wordpress-social-login') ?></label></th>
+									<th width="200"><label><?php _e("Provider", 'wordpress-social-login') ?></label></th>
 									<td><?php echo $provider_id; ?></td>
 								</tr>
 
 								<?php if( isset( $adapter->openidIdentifier ) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("OpenID Identifier", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("OpenID Identifier", 'wordpress-social-login') ?></label></th>
 										<td><?php echo $adapter->openidIdentifier; ?></td>
 									</tr>
 								<?php endif; ?>
 
 								<?php if( isset( $adapter->scope ) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Scope", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("Scope", 'wordpress-social-login') ?></label></th>
 										<td><?php echo $adapter->scope; ?></td>
 									</tr>
 								<?php endif; ?>
 
 								<?php if( isset( $adapter->config['keys'] ) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Application keys", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("Application keys", 'wordpress-social-login') ?></label></th>
 										<td><div style="max-width:650px"><?php echo json_encode( $adapter->config['keys'] ); ?></div></td>
 									</tr>
 								<?php endif; ?>
@@ -132,28 +132,28 @@ function wsl_component_authtest()
 
 								<?php if( isset($accessToken["access_token"]) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Access token", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("Access token", 'wordpress-social-login') ?></label></th>
 										<td><div style="max-width:650px"><?php echo $adapter->getAccessToken()["access_token"]; ?></div></td>
 									</tr>
 								<?php endif; ?>
 
 								<?php if( isset($accessToken["access_token_secret"]) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Access token secret", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("Access token secret", 'wordpress-social-login') ?></label></th>
 										<td><?php echo $adapter->getAccessToken()["access_token_secret"]; ?></td>
 									</tr>
 								<?php endif; ?>
 
 								<?php if( isset($accessToken["expires_in"]) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Access token expires in", 'wordpress-social-login') ?></label></th>
-										<td><?php echo (int) $adapter->getAccessToken()["expires_at"] - time(); ?> <?php __e("second(s)", 'wordpress-social-login') ?></td>
+										<th width="200"><label><?php _e("Access token expires in", 'wordpress-social-login') ?></label></th>
+										<td><?php echo (int) $adapter->getAccessToken()["expires_at"] - time(); ?> <?php _e("second(s)", 'wordpress-social-login') ?></td>
 									</tr>
 								<?php endif; ?>
 
 								<?php if( isset($accessToken["expires_at"]) ): ?>
 									<tr>
-										<th width="200"><label><?php __e("Access token expires at", 'wordpress-social-login') ?></label></th>
+										<th width="200"><label><?php _e("Access token expires at", 'wordpress-social-login') ?></label></th>
 										<td><?php echo date( DATE_W3C, $adapter->getAccessToken()["expires_at"] ); ?></td>
 									</tr>
 								<?php endif; ?>
@@ -168,7 +168,7 @@ function wsl_component_authtest()
 					?>
 						<div class="stuffbox">
 							<h3>
-								<label><?php __e("Connected adapter console", 'wordpress-social-login') ?></label>
+								<label><?php _e("Connected adapter console", 'wordpress-social-login') ?></label>
 							</h3>
 							<div class="inside">
 								<?php
@@ -205,22 +205,22 @@ function wsl_component_authtest()
 								<form action="" method="post"/>
 									<table class="wp-list-table widefat">
 										<tr>
-											<th width="200"><label><?php __e("Path", 'wordpress-social-login') ?></label></th>
+											<th width="200"><label><?php _e("Path", 'wordpress-social-login') ?></label></th>
 											<td><input type="text" style="width:96%" name="console-path" value="<?php echo htmlentities( $path ); ?>"><a href="https://apigee.com/providers" target="_blank"><img src="<?php echo $assets_base_url . 'question.png' ?>" style="vertical-align: text-top;" /></a></td>
 										</tr>
 										<tr>
-											<th width="200"><label><?php __e("Method", 'wordpress-social-login') ?></label></th>
+											<th width="200"><label><?php _e("Method", 'wordpress-social-login') ?></label></th>
 											<td><select style="width:100px" name="console-method"><option value="GET" <?php if( $method == 'GET' ) echo 'selected'; ?>>GET</option><!-- <option value="POST" <?php if( $method == 'POST' ) echo 'selected'; ?>>POST</option>--></select></td>
 										</tr>
 										<tr>
-											<th width="200"><label><?php __e("Query", 'wordpress-social-login') ?></label></th>
+											<th width="200"><label><?php _e("Query", 'wordpress-social-login') ?></label></th>
 											<td><textarea style="width:100%;height:60px;margin-top:6px;" name="console-query"><?php echo htmlentities( $query ); ?></textarea></td>
 										</tr>
 									</table>
 
 									<br />
 
-									<input type="submit" value="<?php __e("Submit", 'wordpress-social-login') ?>" class="button">
+									<input type="submit" value="<?php _e("Submit", 'wordpress-social-login') ?>" class="button">
 								</form>
 							</div>
 						</div>
@@ -228,7 +228,7 @@ function wsl_component_authtest()
 						<?php if( $console ): ?>
 							<div class="stuffbox">
 								<h3>
-									<label><?php __e("API Response", 'wordpress-social-login') ?></label>
+									<label><?php _e("API Response", 'wordpress-social-login') ?></label>
 								</h3>
 								<div class="inside">
 									<textarea rows="25" cols="70" wrap="off" style="width:100%;height:400px;margin-bottom:15px;font-family: monospace;font-size: 12px;"><?php echo htmlentities( print_r( $response, true ) ); ?></textarea>
@@ -237,7 +237,7 @@ function wsl_component_authtest()
 						<?php if( 0 ): ?>
 							<div class="stuffbox">
 								<h3>
-									<label><?php __e("Code PHP", 'wordpress-social-login') ?></label>
+									<label><?php _e("Code PHP", 'wordpress-social-login') ?></label>
 								</h3>
 								<div class="inside">
 <textarea rows="25" cols="70" wrap="off" style="width:100%;height:210px;margin-bottom:15px;font-family: monospace;font-size: 12px;"
@@ -267,7 +267,7 @@ catch( Exception $e )
 							</div>
 							<div class="stuffbox">
 								<h3>
-									<label><?php __e("Connected adapter debug", 'wordpress-social-login') ?></label>
+									<label><?php _e("Connected adapter debug", 'wordpress-social-login') ?></label>
 								</h3>
 								<div class="inside">
 									<textarea rows="25" cols="70" wrap="off" style="width:100%;height:400px;margin-bottom:15px;font-family: monospace;font-size: 12px;"><?php echo htmlentities( print_r( $adapter, true ) ); ?></textarea>
@@ -275,7 +275,7 @@ catch( Exception $e )
 							</div>
 							<div class="stuffbox">
 								<h3>
-									<label><?php __e("PHP Session", 'wordpress-social-login') ?></label>
+									<label><?php _e("PHP Session", 'wordpress-social-login') ?></label>
 								</h3>
 								<div class="inside">
 									<textarea rows="25" cols="70" wrap="off" style="width:100%;height:350px;margin-bottom:15px;font-family: monospace;font-size: 12px;"><?php echo htmlentities( print_r( $_SESSION, true ) ); ?></textarea>
@@ -288,7 +288,7 @@ catch( Exception $e )
 					<?php if( ! $console ): ?>
 						<div class="stuffbox">
 							<h3>
-								<label><?php __e("Connected user social profile", 'wordpress-social-login') ?></label>
+								<label><?php _e("Connected user social profile", 'wordpress-social-login') ?></label>
 							</h3>
 							<div class="inside">
 								<table class="wp-list-table widefat">
@@ -342,14 +342,14 @@ catch( Exception $e )
 			<td width="400">
 				<div class="postbox">
 					<div class="inside">
-						<h3><?php __e("Authentication Playground", 'wordpress-social-login') ?></h3>
+						<h3><?php _e("Authentication Playground", 'wordpress-social-login') ?></h3>
 
 						<div style="padding:0 20px;">
 							<p>
-								<?php __e('Authentication Playground will let you authenticate with the enabled social networks without creating any new user account', 'wordpress-social-login') ?>.
+								<?php _e('Authentication Playground will let you authenticate with the enabled social networks without creating any new user account', 'wordpress-social-login') ?>.
 							</p>
 							<p>
-								<?php __e('This tool will also give you a direct access to social networks apis via a lightweight console', 'wordpress-social-login') ?>.
+								<?php _e('This tool will also give you a direct access to social networks apis via a lightweight console', 'wordpress-social-login') ?>.
 							</p>
 						</div>
 					</div>
@@ -360,7 +360,7 @@ catch( Exception $e )
 					<div class="inside">
 						<div style="padding:0 20px;">
 							<p>
-								<?php __e("Connect with", 'wordpress-social-login') ?>:
+								<?php _e("Connect with", 'wordpress-social-login') ?>:
 							</p>
 
 							<div style="width: 380px; padding: 10px; border: 1px solid #ddd; background-color: #fff;">

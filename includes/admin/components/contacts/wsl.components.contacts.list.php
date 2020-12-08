@@ -24,7 +24,7 @@ function wsl_component_contacts_list( $user_id )
 	{
 		?>
 			<div style="padding: 15px; margin-bottom: 8px; border: 1px solid #ddd; background-color: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-				<?php __e( "WordPress user not found!", 'wordpress-social-login' ); ?>.
+				<?php _e( "WordPress user not found!", 'wordpress-social-login' ); ?>.
 			</div>
 		<?php
 
@@ -69,18 +69,18 @@ function wsl_component_contacts_list( $user_id )
 <table cellspacing="0" class="wp-list-table widefat fixed users">
 	<thead>
 		<tr>
-			<th width="100"><span><?php __e("Provider", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Name", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Email", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Profile Url", 'wordpress-social-login') ?></span></th>
+			<th width="100"><span><?php _e("Provider", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Name", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Email", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Profile Url", 'wordpress-social-login') ?></span></th>
 		</tr>
 	</thead>
 	<tfoot>
 		<tr>
-			<th width="100"><span><?php __e("Provider", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Name", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Email", 'wordpress-social-login') ?></span></th>
-			<th><span><?php __e("Contact Profile Url", 'wordpress-social-login') ?></span></th>
+			<th width="100"><span><?php _e("Provider", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Name", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Email", 'wordpress-social-login') ?></span></th>
+			<th><span><?php _e("Contact Profile Url", 'wordpress-social-login') ?></span></th>
 		</tr>
 	</tfoot>
 	<tbody id="the-list">
@@ -91,7 +91,7 @@ function wsl_component_contacts_list( $user_id )
 			if( ! $user_contacts )
 			{
 				?>
-					<tr class="no-items"><td colspan="4" class="colspanchange"><?php __e("No contacts found", 'wordpress-social-login') ?>.</td></tr>
+					<tr class="no-items"><td colspan="4" class="colspanchange"><?php _e("No contacts found", 'wordpress-social-login') ?>.</td></tr>
 				<?php
 			}
 			else
@@ -100,7 +100,7 @@ function wsl_component_contacts_list( $user_id )
 				?>
 					<tr class="<?php if( ++$i % 2 ) echo "alternate" ?>">
 						<td nowrap>
-							<img src="<?php echo $assets_base_url . strtolower( $item->provider ) . '.png' ?>" style="vertical-align:top;width:16px;height:16px;" /> <?php __e($item->provider, 'wordpress-social-login') ?>
+							<img src="<?php echo $assets_base_url . strtolower( $item->provider ) . '.png' ?>" style="vertical-align:top;width:16px;height:16px;" /> <?php _e($item->provider, 'wordpress-social-login') ?>
 						</td>
 						<td>
 							<?php if( $item->photo_url ) { ?>

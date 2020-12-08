@@ -19,7 +19,7 @@ function wsl_component_watchdog()
 {
  	if( ! get_option( 'wsl_settings_debug_mode_enabled' ) )
 	{
-		return __e("<p>Debug mode is disabled.</p>", 'wordpress-social-login');
+		return _e("<p>Debug mode is disabled.</p>", 'wordpress-social-login');
 	}
 
 	if( get_option( 'wsl_settings_debug_mode_enabled' ) == 1 )
@@ -39,11 +39,11 @@ function wsl_component_watchdog_files()
 ?>
 <div style="padding: 5px 20px; border: 1px solid #ddd; background-color: #fff;">
 	<h3></h3>
-	<h3><?php __e("Authentication log files viewer", 'wordpress-social-login') ?></h3>
+	<h3><?php _e("Authentication log files viewer", 'wordpress-social-login') ?></h3>
 
 	<form method="post" action="" style="float: right;margin-top:-45px">
 		<select name="log_file">
-			<option value=""> &mdash; <?php __e("Select a log file to display", 'wordpress-social-login') ?> &mdash;</option>
+			<option value=""> &mdash; <?php _e("Select a log file to display", 'wordpress-social-login') ?> &mdash;</option>
 
 			<?php
 				$wp_upload_dir = wp_upload_dir();
@@ -66,7 +66,7 @@ function wsl_component_watchdog_files()
 			?>
 		</select>
 
-		<input type="submit" value="<?php __e("View", 'wordpress-social-login') ?>" class="button">
+		<input type="submit" value="<?php _e("View", 'wordpress-social-login') ?>" class="button">
 	</form>
 
 	<textarea rows="25" cols="70" wrap="off" style="width:100%;height:580px;margin-bottom:15px;white-space: nowrap;font-family: monospace;font-size: 12px;"><?php if( $selected && file_exists( $wsl_path . '/' . $selected ) ) echo file_get_contents( $wsl_path . '/' . $selected ); ?></textarea>
@@ -98,13 +98,13 @@ function wsl_component_watchdog_database()
 
 <div style="padding: 5px 20px; border: 1px solid #ddd; background-color: #fff;">
 
-	<h3><?php __e("Authentication log viewer - latest activity", 'wordpress-social-login') ?></h3>
+	<h3><?php _e("Authentication log viewer - latest activity", 'wordpress-social-login') ?></h3>
 
 	<p style="float: right;margin-top:-45px">
 		<?php
 			$delete_url = wp_nonce_url( 'options-general.php?page=wordpress-social-login&wslp=watchdog&delete=log' );
 		?>
-		<a class="button button-secondary" style="background-color: #da4f49;border-color: #bd362f;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);color: #ffffff;" href="<?php echo $delete_url ?>" onClick="return confirm('Are you sure?');"><?php __e("Delete WSL Log", 'wordpress-social-login'); ?></a>
+		<a class="button button-secondary" style="background-color: #da4f49;border-color: #bd362f;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);color: #ffffff;" href="<?php echo $delete_url ?>" onClick="return confirm('Are you sure?');"><?php _e("Delete WSL Log", 'wordpress-social-login'); ?></a>
 	</p>
 
 	<hr />
@@ -114,7 +114,7 @@ function wsl_component_watchdog_database()
 
 		if( ! $list_sessions )
 		{
-			__e("<p>No log found!</p>", 'wordpress-social-login');
+			_e("<p>No log found!</p>", 'wordpress-social-login');
 		}
 		else
 		{

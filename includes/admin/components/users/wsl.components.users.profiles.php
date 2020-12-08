@@ -25,7 +25,7 @@ function wsl_component_users_profiles( $user_id )
 	{
 ?>
 <div style="padding: 15px; margin-bottom: 8px; border: 1px solid #ddd; background-color: #fff;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-	<?php __e( "This's not a WSL user!", 'wordpress-social-login' ); ?>.
+	<?php _e( "This's not a WSL user!", 'wordpress-social-login' ); ?>.
 </div>
 <?php
 		return;
@@ -94,12 +94,12 @@ function wsl_component_users_profiles( $user_id )
 
 <div style="padding: 20px; border: 1px solid #ddd; background-color: #fff;">
 	<table class="wp-list-table widefat">
-		<tr><th width="200"><label><?php __e("Wordpress User ID", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->ID; ?></td></tr>
-		<tr><th width="200"><label><?php __e("Username", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->user_login; ?></td></tr>
-		<tr><th><label><?php __e("Display name", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->display_name; ?></td></tr>
-		<tr><th><label><?php __e("E-mail", 'wordpress-social-login'); ?></label></th><td><a href="mailto:<?php echo $user_data->user_email; ?>" target="_blank"><?php echo $user_data->user_email; ?></a></td></tr>
-		<tr><th><label><?php __e("Website", 'wordpress-social-login'); ?></label></th><td><a href="<?php echo $user_data->user_url; ?>" target="_blank"><?php echo $user_data->user_url; ?></a></td></tr>
-		<tr><th><label><?php __e("Registered", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->user_registered; ?></td></tr>
+		<tr><th width="200"><label><?php _e("Wordpress User ID", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->ID; ?></td></tr>
+		<tr><th width="200"><label><?php _e("Username", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->user_login; ?></td></tr>
+		<tr><th><label><?php _e("Display name", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->display_name; ?></td></tr>
+		<tr><th><label><?php _e("E-mail", 'wordpress-social-login'); ?></label></th><td><a href="mailto:<?php echo $user_data->user_email; ?>" target="_blank"><?php echo $user_data->user_email; ?></a></td></tr>
+		<tr><th><label><?php _e("Website", 'wordpress-social-login'); ?></label></th><td><a href="<?php echo $user_data->user_url; ?>" target="_blank"><?php echo $user_data->user_url; ?></a></td></tr>
+		<tr><th><label><?php _e("Registered", 'wordpress-social-login'); ?></label></th><td><?php echo $user_data->user_registered; ?></td></tr>
 		</tr>
 	 </table>
 </div>
@@ -110,7 +110,7 @@ function wsl_component_users_profiles( $user_id )
 ?>
 <div style="margin-top:15px;padding: 5px 20px 20px; border: 1px solid #ddd; background-color: #fff;">
 
-<h4><img src="<?php echo $assets_base_url . strtolower( $link->provider ) . '.png' ?>" style="vertical-align:top;width:16px;height:16px;" /> <?php __e("User profile", 'wordpress-social-login'); ?> <small><?php echo sprintf( __( "as provided by %s", 'wordpress-social-login'), $link->provider ); ?> </small></h4>
+<h4><img src="<?php echo $assets_base_url . strtolower( $link->provider ) . '.png' ?>" style="vertical-align:top;width:16px;height:16px;" /> <?php _e("User profile", 'wordpress-social-login'); ?> <small><?php echo sprintf( __( "as provided by %s", 'wordpress-social-login'), $link->provider ); ?> </small></h4>
 
 <table class="wp-list-table widefat">
 	<?php
